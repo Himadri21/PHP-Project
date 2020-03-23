@@ -78,11 +78,11 @@
                 $usn=$_POST['usn'];
                 $bdate=$_POST['bdate'];
                 $rdate=$_POST['rdate'];
-                /*$checkQuery=mysqli_query($conn,"SELECT No_of_copies from Book where Book_id='$bid'");
+                $checkQuery=mysqli_query($conn,"SELECT No_of_copies from Book where Book_id='$bid'");
                 $row=$checkQuery->fetch_assoc();
                 $nc=intval($row['No_of_copies']);
-                if(nc>=0)
-                {*/
+                if($nc>=0)
+                {
                     $updateQuery=mysqli_query($conn,"INSERT into Borrows_Book VALUES('$bid','$usn','$bdate','$rdate')");
                     if($updateQuery==true)
                     {
@@ -103,9 +103,9 @@
                     echo "<p style='margin-left:2rem;'>".$row->Student_Name." has issued Book ".$row1->Book_Name."</p>";
                     echo "<form action='StudentBorrow.php' method='POST' class='ignore-css'><input type=hidden name='usn' value=".$usn.">";
                     echo "<p style='margin-left:2rem;'>Click here to see all books borrowed by ".$row->Student_Name."<input type='submit' name='susn' class='btn btn-primary' value='More'></form></p>";
-                /*}
+                }
                 else
-                    echo "<script type='text/javascript'>alert('Book not available')</script>";*/
+                    echo "<script type='text/javascript'>alert('Book not available')</script>";
             }
         ?>
     </body>
